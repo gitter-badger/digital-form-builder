@@ -1,8 +1,8 @@
 const hapi = require('hapi')
 const config = require('./../server/config')
-const { routes } = require('./builder')
+const { routes, configurePlugin } = require('./builder')
 
-async function createServer () {
+async function createServer (routeConfig) {
   // Create the hapi server
   const server = hapi.server({
     port: config.port,
@@ -19,7 +19,11 @@ async function createServer () {
   await server.register(require('./../server/plugins/locale'))
   await server.register(require('./../server/plugins/session'))
   await server.register(require('./../server/plugins/views'))
-  await server.register(routes)
+  if (routeConfig) {
+    await server.register(configurePlugin(routeConfig.data, routeConfig.basePath))
+  } else {
+    await server.register(routes())
+  }
   await server.register(require('./../server/plugins/router'))
   await server.register(require('./../server/plugins/error-pages'))
 

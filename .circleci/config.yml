@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/node:9.11
+      - image: circleci/node:10.16-browsers
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -34,6 +34,19 @@ jobs:
 
       # run tests!
       - run: yarn test
+
+      - run:
+          name: Accesibility audits
+          command: |
+            yarn a11y
+
+      - store_artifacts:
+          path: report.html
+          destination: report.html
+
+      - store_artifacts:
+          path: report.json
+          destination: report.json
 
   deploy:
     docker:

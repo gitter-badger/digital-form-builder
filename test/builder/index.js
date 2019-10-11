@@ -17,6 +17,10 @@ const configurePlugins = (configFile) => {
   const data = require(dataFilePath)
   // probably want to have basePath configurable in json also/instead
   const basePath = configFile.replace(/govsite\.|\.json|/gi, '')
+  return configurePlugin(data, basePath)
+}
+
+const configurePlugin = (data, basePath) => {
   const model = new Model(data, {
     getState,
     mergeState,
@@ -30,6 +34,11 @@ const configurePlugins = (configFile) => {
   }]
 }
 
+const routes = () => {
+  return [].concat(...configFiles.map(configFile => configurePlugins(configFile)))
+}
+
 module.exports = {
-  routes: [].concat(...configFiles.map(configFile => configurePlugins(configFile)))
+  routes,
+  configurePlugin
 }
