@@ -61,6 +61,7 @@
       "value": "whereDoYouLive==Spain"
     }
   ],
+  "startPage": "/",
   "pages": [
     {
       "path": "/your-details",
