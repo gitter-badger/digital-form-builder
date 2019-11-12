@@ -53,6 +53,7 @@
       "value": "aboutYourCeremony.ceremony == 'Marriage'"
     }
   ],
+  "startPage": "/",
   "pages": [
     {
       "path": "/your-details",
