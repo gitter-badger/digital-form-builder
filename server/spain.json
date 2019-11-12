@@ -55,6 +55,10 @@
     {
       "name": "noBritishPassport",
       "value": "britishPassport==false"
+    },
+    {
+      "name": "livesInSpain",
+      "value": "whereDoYouLive==Spain"
     }
   ],
   "pages": [
@@ -99,13 +103,13 @@
       ],
       "next": [
         {
-          "path": "/date-of-birth"
+          "path": "/sex"
         }
       ],
       "title": "Your full name"
     },
     {
-      "path": "/your-marital-or-civil-status",
+      "path": "/have-you-been-married-before",
       "section": "yourMaritalOrCivilStatus",
       "components": [
         {
@@ -118,17 +122,17 @@
       ],
       "next": [
         {
-          "path": "/delivery-address"
+          "path": "/whatIsYourCurrentMaritalStatus"
         },
         {
-          "path": "/whatIsYourCurrentMaritalStatus"
+          "path": "/partner-married-before"
         }
       ],
-      "title": "Your marital or civil status"
+      "title": "Have you been married before?"
     },
     {
       "path": "/your-contact-details",
-      "title": "Add your contact details",
+      "title": "Your contact details",
       "section": "yourContactDetails",
       "components": [
         {
@@ -155,7 +159,7 @@
       ],
       "next": [
         {
-          "path": "/your-partners-details"
+          "path": "/delivery-address"
         }
       ]
     },
@@ -174,37 +178,35 @@
           "schema": {}
         },
         {
-          "options": {
-            "required": false
-          },
-          "type": "DateField",
-          "name": "dateField",
+          "type": "DatePartsField",
+          "name": "date)fMarriage",
           "title": "Date",
-          "schema": {}
-        }
-      ],
-      "next": [
-        {
-          "path": "/feedback"
-        }
-      ]
-    },
-    {
-      "path": "/your-partners-details",
-      "title": "Your partner's details",
-      "section": "yourPartnersDetails",
-      "components": [
-        {
-          "type": "TextField",
-          "name": "fullNameOfPartner",
-          "title": "Full name of partner",
           "options": {},
           "schema": {}
         }
       ],
       "next": [
         {
-          "path": "/about-your-ceremony"
+          "path": "/your-contact-details"
+        }
+      ]
+    },
+    {
+      "path": "/partners-details",
+      "title": "Partner's full name",
+      "section": "partnersDetails",
+      "components": [
+        {
+          "type": "TextField",
+          "name": "partnersFullName",
+          "title": "Partner's full name",
+          "options": {},
+          "schema": {}
+        }
+      ],
+      "next": [
+        {
+          "path": "/partners-nationality"
         }
       ]
     },
@@ -225,99 +227,29 @@
       ],
       "next": [
         {
-          "path": "/delivery-address"
+          "path": "/partner-married-before"
         }
       ],
       "title": "What is your current marital status?"
     },
     {
       "path": "/delivery-address",
-      "title": "Where should we send the certificate",
+      "title": "Where should we send the certificate?",
       "section": "deliveryDetails",
       "components": [
         {
           "options": {
-            "list": "country"
+            "list": "whereShouldWeSendCertificate"
           },
-          "type": "SelectField",
-          "name": "country",
-          "title": "What country should we send the certificate to?",
-          "schema": {}
-        },
-        {
-          "type": "TextField",
-          "name": "address",
-          "title": "Address",
-          "options": {},
-          "schema": {}
-        },
-        {
-          "type": "TextField",
-          "name": "town",
-          "title": "Town or City",
-          "options": {},
-          "schema": {}
-        },
-        {
-          "type": "TextField",
-          "name": "postcode",
-          "title": "Postcode",
-          "options": {},
+          "type": "RadiosField",
+          "name": "deliveryAddress",
+          "title": "Where should we send the certificate?",
           "schema": {}
         }
       ],
       "next": [
         {
-          "path": "/your-contact-details"
-        }
-      ]
-    },
-    {
-      "path": "/date-of-birth",
-      "title": "Date and place of birth",
-      "section": "yourDetails",
-      "components": [
-        {
-          "type": "DatePartsField",
-          "name": "dateOfBirth",
-          "title": "Date of birth",
-          "options": {},
-          "schema": {}
-        },
-        {
-          "type": "TextField",
-          "name": "placeOfBirth",
-          "title": "Place of birth as shown on birth certificate",
-          "options": {},
-          "schema": {}
-        }
-      ],
-      "next": [
-        {
-          "path": "/sex"
-        }
-      ]
-    },
-    {
-      "path": "/whatllYouNeed",
-      "title": "What you'll need to apply",
-      "components": [
-        {
-          "type": "Para",
-          "content": "<p class=\"govuk-body\">You won’t be able to save this application – take pictures of the following documents before you start:</p>\r\n<ul class=\"govuk-list govuk-list--bullet\">\r\n  <li>your British passport</li>\r\n  <li>your long British birth certificate</li>\r\n</ul>",
-          "options": {},
-          "schema": {}
-        },
-        {
-          "type": "Html",
-          "content": "<h2 class=\"govuk-heading-l\">How to take a photos of your documents</h2>\r\n\r\n<p class=\"govuk-body\">You can either take a photo with your mobile phone or scan the document.</p>\r\n\r\n<p class=\"govuk-body\"> We recommend you take a photo with your phone, and add it to the device you're completing the application form on. </p>\r\n\r\n<p class=\"govuk-body\"> Check that the photo you have taken is claer, and that all the details on your documents are visable. </p>",
-          "options": {},
-          "schema": {}
-        }
-      ],
-      "next": [
-        {
-          "path": "/upload-page-marital"
+          "path": "/feedback"
         }
       ]
     },
@@ -461,41 +393,53 @@
     },
     {
       "path": "/service-start",
-      "title": "Getting married in France",
+      "title": "Getting married in Spain",
       "components": [
         {
           "type": "Para",
-          "content": "To get married in France you need to:",
+          "content": "<h2 class=\"govuk-heading-l\">Before you get married</h2>",
+          "options": {},
+          "schema": {}
+        },
+        {
+          "type": "Para",
+          "content": "Contact the civil registry office where you’re planning to get married to find out about local marriage laws, including what documents you and your partner will need.\r\n<p class=\"govuk-body\">One of you must live in Spain or be a Spanish national.</p>",
+          "options": {},
+          "schema": {}
+        },
+        {
+          "type": "Para",
+          "content": "The civil registry office will ask for one or both of the following:\r\n<ul class=\"govuk-list govuk-list--bullet\">\r\n  <li>Certificate of no impediment</li>\r\n  <li>Marital status certificate</li>\r\n</ul>",
+          "options": {},
+          "schema": {}
+        },
+        {
+          "type": "Para",
+          "content": "If your partner is British they’ll need to make a separate application to the consulate with the same certificates. If they’re not British they’ll need equivalent documents from their local authorities.",
           "options": {},
           "schema": {}
         },
         {
           "type": "Html",
-          "content": "<ul class=\"govuk-list govuk-list--bullet\">\r\n  <li>download and print a certificate of celibacy (‘certificate de célibat’) </li>\r\n  <li>apply for a certificate of custom (‘certificate de coutume')</li>\r\n</ul>",
-          "options": {},
-          "schema": {}
-        },
-        {
-          "type": "Para",
-          "content": "You must take both certificates to the local town hall or court to get married.",
+          "content": "<h2 class=\"govuk-heading-l\">Get married</h2>",
           "options": {},
           "schema": {}
         },
         {
           "type": "Html",
-          "content": "<h1 class=\"govuk-heading-m\">Before you apply for a certificate of custom</h1>",
+          "content": "<p class=\"govuk-body govuk-!-font-size-19\">You can have a civil wedding or a religious wedding.\r\n\r\nReligious ceremonies aren’t valid on their own. You’ll need to have a civil wedding as well.</p>\r\n\r\n<h3 class=\"govuk-heading-m\">Civil weddings</h3>\r\n<p class=\"govuk-body govuk-!-font-size-19\">Take your certificates to the civil registry office where you’re planning to get married. The registrar will check your documents and set a date for your wedding.</p>\r\n\r\n<h3 class=\"govuk-heading-m\">Religious weddings</h3>\r\n<p class=\"govuk-body govuk-!-font-size-19\">Take your certificates to the priest who’s going to marry you. The priest will check your documents and set a date for your wedding.\r\n\r\nAfter your ceremony either you or the priest must register your marriage at the local civil registry office. You won’t be legally married until this has happened.</p>",
           "options": {},
           "schema": {}
         },
         {
-          "type": "Para",
-          "content": "Contact the local town hall to find out about local laws.",
+          "type": "Html",
+          "content": "<h2 class=\"govuk-heading-l\">After you get married</h2>",
           "options": {},
           "schema": {}
         },
         {
-          "type": "Para",
-          "content": "You, your partner or one of your parents need to have lived in the town where you want to get married for at least 40 days before the ceremony.",
+          "type": "Html",
+          "content": "<p class=\"govuk-body govuk-!-font-size-19\">Your marriage will be recognised in the UK if:</p>\r\n<ul class=\"govuk-list govuk-list--bullet\">\r\n  <li>you follow the correct process according to the law in Spain</li>\r\n  <li>it would be allowed under UK law</li>\r\n</ul>\r\n\r\n<p class=\"govuk-body govuk-!-font-size-19\">It’s not possible to register your marriage in the UK.</p>\r\n<p class=\"govuk-body\">If your partner isn’t a British citizen, they can apply for British citizenship once they’ve lived in the UK for 3 years.</p>",
           "options": {},
           "schema": {}
         }
@@ -503,24 +447,9 @@
       "next": [
         {
           "path": "/apply-for-a-certificate-of-custom"
-        }
-      ]
-    },
-    {
-      "path": "/how-to-get-a-certificate",
-      "title": "How to get your certificate of custom ('certificate de coutume')",
-      "components": [
+        },
         {
-          "options": {
-            "list": "howToGetCertificate"
-          },
-          "type": "FlashCard",
-          "schema": {}
-        }
-      ],
-      "next": [
-        {
-          "path": "/place-of-birth"
+          "path": "/spanish-CNI"
         }
       ]
     },
@@ -545,12 +474,6 @@
       "next": [
         {
           "path": "/add-your-documents"
-        },
-        {
-          "path": "/upload-consular-certificate"
-        },
-        {
-          "path": "/add-your-local-birth-certificate"
         }
       ],
       "title": "Add a photo of your passport"
@@ -606,67 +529,20 @@
       ],
       "next": [
         {
-          "path": "/ceremony"
-        },
-        {
           "path": "/no-british-passport"
-        }
-      ]
-    },
-    {
-      "path": "/place-of-birth",
-      "title": "Were you born in the UK?",
-      "components": [
-        {
-          "options": {
-            "list": "yesNo"
-          },
-          "type": "RadiosField",
-          "name": "bornUK",
-          "title": "Were you born in the UK?",
-          "schema": {}
-        }
-      ],
-      "next": [
-        {
-          "path": "/passport-birth-certificate"
         },
         {
-          "path": "/not-uk-born-documents"
-        }
-      ]
-    },
-    {
-      "path": "/passport-birth-certificate",
-      "title": "Is the name on your passport the same as your long birth certificate?",
-      "components": [
-        {
-          "options": {
-            "list": "yesNo"
-          },
-          "type": "RadiosField",
-          "name": "namePassportBirth",
-          "title": "Is the name on your passport exactly the same as on your birth certificate?",
-          "hint": "First name, middle name and surname must match",
-          "schema": {}
-        }
-      ],
-      "next": [
-        {
-          "path": "/whatllYouNeed"
-        },
-        {
-          "path": "/name-change-details"
+          "path": "/where-do-you-live"
         }
       ]
     },
     {
       "path": "/add-your-documents",
-      "title": "Add a picture of your birth certificate",
+      "title": "Add a proof of address",
       "components": [
         {
           "type": "Html",
-          "content": "<p class=\"govuk-body\">Add a photo of your long British birth certificate. The full version of the certificate shows the names of your parents.</p>\r\n\r\n<div class=\"govuk-form-group\">\r\n  <label class=\"govuk-label\" for=\"file-upload-1\">\r\n    Upload a file\r\n  </label>\r\n  <input class=\"govuk-file-upload\" id=\"file-upload-1\"  type=\"file\">\r\n</div>",
+          "content": "<p class=\"govuk-body\">Add a photo of a proof of your address. It could be one of the following five options:</p>\r\n<ul class=\"govuk-list govuk-list--bullet\">\r\n<li>electoral role confirmation letter</li>\r\n    <li>utility bills (not printed off the internet) / building society/savings bank passbook</li>\r\n    <li>bank/building society/credit card statement (not ones printed off the internet)</li>\r\n    <li>mortgage statement /council tax demand / credit reference agency search</li>\r\n    <li>recent evidence of entitlement to state or local authority-funded benefit, tax credit,\r\npension, educational or other grant</li>\r\n\r\n<div class=\"govuk-form-group\">\r\n  <label class=\"govuk-label\" for=\"file-upload-1\">\r\n    Upload a file\r\n  </label>\r\n  <input class=\"govuk-file-upload\" id=\"file-upload-1\" type=\"file\">\r\n</div>",
           "options": {},
           "schema": {}
         },
@@ -680,13 +556,10 @@
       ],
       "next": [
         {
-          "path": "/your-details"
-        },
-        {
-          "path": "/add-your-deed-poll"
-        },
-        {
           "path": "/add-divorce-death-picture"
+        },
+        {
+          "path": "/add-birth-certificate"
         }
       ],
       "section": "addYourDocuments"
@@ -708,7 +581,7 @@
       ],
       "next": [
         {
-          "path": "/your-marital-or-civil-status"
+          "path": "/uk-address"
         }
       ]
     },
@@ -727,63 +600,31 @@
       "condition": "noBritishPassport"
     },
     {
-      "path": "/not-uk-born-documents",
-      "title": "Which documents do you have that prove you are a British citizen?",
-      "components": [
-        {
-          "options": {
-            "list": "Documents"
-          },
-          "type": "RadiosField",
-          "name": "documents",
-          "title": "Which documents do you have that prove you are a British citizen?",
-          "hint": "If you were born outside the UK, but are a British citizen, you'll need to take a photo of the documents that demonstrate your status.",
-          "schema": {}
-        }
-      ],
-      "next": [
-        {
-          "path": "/passport-consular-certificate"
-        },
-        {
-          "path": "/passport-local-certificate"
-        }
-      ]
-    },
-    {
-      "path": "/passport-consular-certificate",
-      "title": "Is the name on your passport the same as your consular birth certificate?",
-      "components": [
-        {
-          "type": "YesNoField",
-          "name": "consularName",
-          "title": "Is the name on your passport exactly the same as on your consular birth certificate?",
-          "options": {},
-          "schema": {}
-        }
-      ],
-      "next": [
-        {
-          "path": "/consular-certificate-documents"
-        },
-        {
-          "path": "/name-change-details"
-        }
-      ]
-    },
-    {
-      "path": "/consular-certificate-documents",
+      "path": "/local-deed-docs",
       "title": "What you'll need to apply",
       "components": [
         {
-          "type": "Para",
-          "content": "<p class=\"govuk-body\">You won’t be able to save this application – take pictures of the following documents before you start:</p>\r\n<ul class=\"govuk-list govuk-list--bullet\">\r\n  <li>your British passport</li>\r\n  <li>your consular birth certificate </li>\r\n</ul>",
+          "type": "Html",
+          "content": "<p class=\"govuk-body\">You won’t be able to save your application – get this information ready before you continue.</p>\r\n\r\n<p class=\"govuk-body\">You can take as long as you need to fill in this section but if there is no activity for 20 minutes, such as filling in a field or clicking next, it will timeout and the information entered will be lost.</p>\r\n\r\n<h3 class=\"govuk-heading-m\">You will need to provide the following information:</h3>",
           "options": {},
           "schema": {}
         },
         {
           "type": "Html",
-          "content": "<h2 class=\"govuk-heading-l\">How to take a photos of your documents</h2>\r\n\r\n<p class=\"govuk-body\">You can either take a photo with your mobile phone or scan the document.</p>\r\n\r\n<p class=\"govuk-body\"> We recommend you take a photo with your phone, and add it to the device you're completing the application form on. </p>\r\n\r\n<p class=\"govuk-body\"> Check that the photo you have taken is claer, and that all the details on your documents are visable. </p>",
+          "content": "<ul class=\"govuk-list govuk-list--bullet\">\r\n  <li>Name of authority in Spain (civil registry, court etc.)\r\nrequesting the certificate from the British Consulate/li>\r\n  <li>Date of appointment to submit paperwork to the\r\nauthority in Spain. (approximate date)</li>\r\n  <li>Date and place of the ceremony</li>\r\n</ul>",
+          "options": {},
+          "schema": {}
+        },
+        {
+          "type": "Html",
+          "content": "<h3 class=\"govuk-heading-m\">You will need to take pictures of the following documents to later upload:</h3>\r\n\r\n<ul class=\"govuk-list govuk-list--bullet\">\r\n  <li>Your UK passport</li>\r\n  <li>Long birth certificate</li>\r\n  <li>Proof of address</li>",
+          "options": {},
+          "schema": {}
+        },
+        {
+          "type": "Details",
+          "title": "Which documents can be used as proof of address?",
+          "content": "<li>electoral role confirmation letter</li>\r\n    <li>utility bills (not printed off the internet) / building society/savings bank passbook</li>\r\n    <li>bank/building society/credit card statement (not ones printed off the internet)</li>\r\n    <li>mortgage statement /council tax demand / credit reference agency search</li>\r\n    <li>recent evidence of entitlement to state or local authority-funded benefit, tax credit,\r\npension, educational or other grant</li>",
           "options": {},
           "schema": {}
         }
@@ -795,56 +636,13 @@
       ]
     },
     {
-      "path": "/passport-local-certificate",
-      "components": [
-        {
-          "type": "YesNoField",
-          "name": "localCertificate",
-          "title": "Is the name on your passport exactly the same as on your local birth certificate?",
-          "options": {},
-          "schema": {}
-        }
-      ],
-      "next": [
-        {
-          "path": "/local-certificate-documents"
-        },
-        {
-          "path": "/name-change-details"
-        }
-      ]
-    },
-    {
-      "path": "/local-certificate-documents",
-      "title": "What you'll need to apply",
-      "components": [
-        {
-          "type": "Para",
-          "content": "<p class=\"govuk-body\">You won’t be able to save this application – take pictures of the following documents before you start:</p>\r\n<ul class=\"govuk-list govuk-list--bullet\">\r\n  <li>your British passport</li>\r\n  <li>your local birth certificate</li>\r\n    <li>your parent's British birth certificate</li>\r\n\r\n\r\n</ul>",
-          "options": {},
-          "schema": {}
-        },
-        {
-          "type": "Html",
-          "content": "<h2 class=\"govuk-heading-l\">How to take a photos of your documents</h2>\r\n\r\n<p class=\"govuk-body\">You can either take a photo with your mobile phone or scan the document.</p>\r\n\r\n<p class=\"govuk-body\"> We recommend you take a photo with your phone, and add it to the device you're completing the application form on. </p>\r\n\r\n<p class=\"govuk-body\"> Check that the photo you have taken is claer, and that all the details on your documents are visable. </p>",
-          "options": {},
-          "schema": {}
-        }
-      ],
-      "next": [
-        {
-          "path": "/upload-page-marital"
-        }
-      ]
-    },
-    {
-      "path": "/upload-consular-certificate",
-      "title": "Add a picture of your consular birth certificate",
+      "path": "/add-birth-certificate",
+      "title": "Add your birth certificate",
       "section": "addYourDocuments",
       "components": [
         {
-          "type": "Html",
-          "content": "<p class=\"govuk-body\">Add a photo of your consular birth certificate. </p>\r\n\r\n<div class=\"govuk-form-group\">\r\n  <label class=\"govuk-label\" for=\"file-upload-1\">\r\n    Upload a file\r\n  </label>\r\n  <input class=\"govuk-file-upload\" id=\"file-upload-1\"  type=\"file\">\r\n</div>",
+          "type": "Para",
+          "content": "<p class=\"govuk-body\">Add a photo of your long British birth certificate. The full version of the certificate shows the names of your parents.</p>\r\n\r\n<div class=\"govuk-form-group\">\r\n  <label class=\"govuk-label\" for=\"file-upload-1\">\r\n    Upload a file\r\n  </label>\r\n  <input class=\"govuk-file-upload\" id=\"file-upload-1\"  type=\"file\">\r\n</div>",
           "options": {},
           "schema": {}
         },
@@ -859,120 +657,32 @@
       "next": [
         {
           "path": "/your-details"
-        },
-        {
-          "path": "/add-your-deed-poll"
-        },
-        {
-          "path": "/add-divorce-death-picture"
         }
       ]
     },
     {
-      "path": "/name-change-details",
-      "title": "How has your name changed?",
+      "path": "/spanish-address",
+      "title": "Your address in Spain",
+      "section": "yourDetails",
       "components": [
         {
-          "type": "InsetText",
-          "content": "The French government needs to see the complete history of how your name has changed from your birth certificate to your passport.",
+          "type": "TextField",
+          "name": "address",
+          "title": "Address",
           "options": {},
           "schema": {}
         },
         {
           "type": "TextField",
-          "name": "nameBirthCert",
-          "title": "Full name on your birth certificate",
-          "hint": "Include middle name(s)",
+          "name": "town-or-city",
+          "title": "Town or city",
           "options": {},
           "schema": {}
         },
         {
           "type": "TextField",
-          "name": "fullNameChange",
-          "title": "Full name changed to",
-          "options": {},
-          "schema": {}
-        },
-        {
-          "options": {
-            "list": "Name"
-          },
-          "type": "RadiosField",
-          "name": "nameChange",
-          "title": "How did your name change?",
-          "schema": {}
-        },
-        {
-          "type": "YesNoField",
-          "name": "nameOnPassport",
-          "title": "Is this name the same as on your passport?",
-          "options": {},
-          "schema": {}
-        }
-      ],
-      "next": [
-        {
-          "path": "/consular-name-change-docs"
-        },
-        {
-          "path": "/multipleNameChange"
-        },
-        {
-          "path": "/deed-pool-british-certf"
-        },
-        {
-          "path": "/consular-name-change"
-        },
-        {
-          "path": "/cosular-marriage-docs"
-        },
-        {
-          "path": "/consular-marriage-docs"
-        },
-        {
-          "path": "/local-deed-docs"
-        },
-        {
-          "path": "/local-name-change"
-        }
-      ]
-    },
-    {
-      "path": "/consular-name-change-docs",
-      "title": "What you'll need to apply",
-      "components": [
-        {
-          "type": "Para",
-          "content": "<p class=\"govuk-body\">You won’t be able to save this application – take pictures of the following documents before you start:</p>\r\n<ul class=\"govuk-list govuk-list--bullet\">\r\n  <li>your British passport</li>\r\n  <li>your long British birth certificate</li>\r\n</ul>",
-          "options": {},
-          "schema": {}
-        },
-        {
-          "type": "Para",
-          "content": "<p class=\"govuk-body\">If you have been previously married or in a civil partnership, you'll need to provide evidence of how this ended, for instance:</p>\r\n<ul class=\"govuk-list govuk-list--bullet\">\r\n  <li>divorce decree absolute</li>\r\n  <li>civil partnership disosolution decree</li>\r\n  <li>death certificate of your late partner</li>\r\n</ul>",
-          "options": {},
-          "schema": {}
-        },
-        {
-          "type": "Html",
-          "content": "<h2 class=\"govuk-heading-l\">How to take a photos of your documents</h2>\r\n\r\n<p class=\"govuk-body\">You can either take a photo with your mobile phone or scan the document.</p>\r\n\r\n<p class=\"govuk-body\"> We recommend you take a photo with your phone, and add it to the device you're completing the application form on. </p>\r\n\r\n<p class=\"govuk-body\"> Check that the photo you have taken is claer, and that all the details on your documents are visable. </p>",
-          "options": {},
-          "schema": {}
-        }
-      ],
-      "next": [
-        {
-          "path": "/upload-page-marital"
-        }
-      ]
-    },
-    {
-      "path": "/multipleNameChange",
-      "title": "Contact the British embassy in Paris",
-      "components": [
-        {
-          "type": "Para",
-          "content": "If you have more than one name change, contact the  <a href=\"https://www.gov.uk/world/organisations/british-consulate-paris/office/british-consulate-paris\" class=\"govuk-link\">British consulate in Paris. </a> </p>",
+          "name": "postcode",
+          "title": "Postcode",
           "options": {},
           "schema": {}
         }
@@ -980,270 +690,339 @@
       "next": []
     },
     {
-      "path": "/deed-pool-british-certf",
-      "title": "What you'll need to apply",
+      "path": "/name-of-Spanish-authority",
+      "title": "Name of authority in Spain requesting the certificate from the British consulate",
+      "section": "aboutSpanishAuthority",
       "components": [
         {
-          "type": "Para",
-          "content": "<p class=\"govuk-body\">You won’t be able to save this application – take pictures of the following documents before you start:</p>\r\n<ul class=\"govuk-list govuk-list--bullet\">\r\n  <li>your British passport</li>\r\n  <li>your long British birth certificate</li>\r\n    <li>your deed poll</li>\r\n\r\n</ul>",
-          "options": {},
-          "schema": {}
-        },
-        {
-          "type": "Html",
-          "content": "<h2 class=\"govuk-heading-l\">How to take a photos of your documents</h2>\r\n\r\n<p class=\"govuk-body\">You can either take a photo with your mobile phone or scan the document.</p>\r\n\r\n<p class=\"govuk-body\"> We recommend you take a photo with your phone, and add it to the device you're completing the application form on. </p>\r\n\r\n<p class=\"govuk-body\"> Check that the photo you have taken is claer, and that all the details on your documents are visable. </p>",
+          "type": "TextField",
+          "name": "nameOfSpanishAuthority",
+          "title": "Name of authority in Spain requesting the certificate from the British consulate",
           "options": {},
           "schema": {}
         }
       ],
       "next": [
         {
-          "path": "/upload-page-marital"
+          "path": "/date-of-appointment"
         }
       ]
     },
     {
-      "path": "/consular-name-change",
-      "title": "What you'll need to apply",
+      "path": "/date-of-appointment",
+      "title": "Date of appointment to submit paperwork to the authority in Spain",
+      "section": "aboutSpanishAuthority",
       "components": [
         {
-          "type": "Para",
-          "content": "<p class=\"govuk-body\">You won’t be able to save this application – take pictures of the following documents before you start:</p>\r\n<ul class=\"govuk-list govuk-list--bullet\">\r\n  <li>your British passport</li>\r\n  <li>your consular birth certificate </li>\r\n  <li>your deed poll </li>\r\n</ul>",
-          "options": {},
-          "schema": {}
-        },
-        {
-          "type": "Html",
-          "content": "<h2 class=\"govuk-heading-l\">How to take a photos of your documents</h2>\r\n\r\n<p class=\"govuk-body\">You can either take a photo with your mobile phone or scan the document.</p>\r\n\r\n<p class=\"govuk-body\"> We recommend you take a photo with your phone, and add it to the device you're completing the application form on. </p>\r\n\r\n<p class=\"govuk-body\"> Check that the photo you have taken is claer, and that all the details on your documents are visable. </p>",
+          "type": "DatePartsField",
+          "name": "dateOfAppointment",
+          "title": "Date of appointment to submit paperwork to the authority in Spain",
           "options": {},
           "schema": {}
         }
       ],
       "next": [
         {
-          "path": "/upload-page-marital"
+          "path": "/about-your-ceremony"
         }
       ]
     },
     {
-      "path": "/consular-marriage-docs",
-      "title": "What you'll need",
+      "path": "/partners-nationality",
+      "title": "Partner's nationality",
+      "section": "partnersDetails",
       "components": [
         {
-          "type": "Para",
-          "content": "<p class=\"govuk-body\">You won’t be able to save this application – take pictures of the following documents before you start:</p>\r\n<ul class=\"govuk-list govuk-list--bullet\">\r\n  <li>your British passport</li>\r\n  <li>your consular birth certificate </li>\r\n</ul>",
-          "options": {},
-          "schema": {}
-        },
-        {
-          "type": "Para",
-          "content": "<p class=\"govuk-body\">If you have been previously married or in a civil partnership, you'll need to provide evidence of how this ended, for instance:</p>\r\n<ul class=\"govuk-list govuk-list--bullet\">\r\n  <li>divorce decree absolute</li>\r\n  <li>civil partnership disosolution decree</li>\r\n  <li>death certificate of your late partner</li>\r\n</ul>",
-          "options": {},
-          "schema": {}
-        },
-        {
-          "type": "Html",
-          "content": "<h2 class=\"govuk-heading-l\">How to take a photos of your documents</h2>\r\n\r\n<p class=\"govuk-body\">You can either take a photo with your mobile phone or scan the document.</p>\r\n\r\n<p class=\"govuk-body\"> We recommend you take a photo with your phone, and add it to the device you're completing the application form on. </p>\r\n\r\n<p class=\"govuk-body\"> Check that the photo you have taken is claer, and that all the details on your documents are visable. </p>",
-          "options": {},
+          "options": {
+            "list": "country"
+          },
+          "type": "SelectField",
+          "name": "partnersNationality",
+          "title": "Partner's nationality",
           "schema": {}
         }
       ],
       "next": [
         {
-          "path": "/upload-page-marital"
+          "path": "/partners-sex"
         }
       ]
     },
     {
-      "path": "/local-deed-docs",
-      "title": "What you'll need to apply",
+      "path": "/partners-sex",
+      "title": "Partner's sex as shown on passport",
+      "section": "partnersDetails",
       "components": [
         {
-          "type": "Para",
-          "content": "<p class=\"govuk-body\">You won’t be able to save this application – take pictures of the following documents before you start:</p>\r\n<ul class=\"govuk-list govuk-list--bullet\">\r\n  <li>your British passport</li>\r\n  <li>your local birth certificate</li>\r\n    <li>your parent's British birth certificate</li>\r\n        <li>your deed poll </li>\r\n\r\n</ul>",
-          "options": {},
-          "schema": {}
-        },
-        {
-          "type": "Html",
-          "content": "<h2 class=\"govuk-heading-l\">How to take a photos of your documents</h2>\r\n\r\n<p class=\"govuk-body\">You can either take a photo with your mobile phone or scan the document.</p>\r\n\r\n<p class=\"govuk-body\"> We recommend you take a photo with your phone, and add it to the device you're completing the application form on. </p>\r\n\r\n<p class=\"govuk-body\"> Check that the photo you have taken is claer, and that all the details on your documents are visable. </p>",
-          "options": {},
+          "options": {
+            "list": "sex"
+          },
+          "type": "RadiosField",
+          "name": "partnersSex",
+          "title": "Partner's sex as shown on passport",
           "schema": {}
         }
       ],
       "next": [
         {
-          "path": "/upload-page-marital"
+          "path": "/name-of-Spanish-authority"
         }
       ]
     },
     {
-      "path": "/local-name-change",
-      "title": "What you'll need",
+      "path": "/partner-married-before",
+      "title": "Has your partner been married before?",
+      "section": "partnersDetails",
       "components": [
         {
-          "type": "Para",
-          "content": "<p class=\"govuk-body\">You won’t be able to save this application – take pictures of the following documents before you start:</p>\r\n<ul class=\"govuk-list govuk-list--bullet\">\r\n  <li>your British passport</li>\r\n  <li>your local birth certificate</li>\r\n    <li>your parent's British birth certificate</li>\r\n\r\n\r\n</ul>",
-          "options": {},
-          "schema": {}
-        },
-        {
-          "type": "Para",
-          "content": "<p class=\"govuk-body\">If you have been previously married or in a civil partnership, you'll need to provide evidence of how this ended, for instance:</p>\r\n<ul class=\"govuk-list govuk-list--bullet\">\r\n  <li>divorce decree absolute</li>\r\n  <li>civil partnership disosolution decree</li>\r\n  <li>death certificate of your late partner</li>\r\n</ul>",
-          "options": {},
-          "schema": {}
-        },
-        {
-          "type": "Html",
-          "content": "<h2 class=\"govuk-heading-l\">How to take a photos of your documents</h2>\r\n\r\n<p class=\"govuk-body\">You can either take a photo with your mobile phone or scan the document.</p>\r\n\r\n<p class=\"govuk-body\"> We recommend you take a photo with your phone, and add it to the device you're completing the application form on. </p>\r\n\r\n<p class=\"govuk-body\"> Check that the photo you have taken is claer, and that all the details on your documents are visable. </p>",
+          "type": "YesNoField",
+          "name": "hasBeenMarriedBefore",
+          "title": "Has your partner been married before?",
           "options": {},
           "schema": {}
         }
       ],
       "next": [
         {
-          "path": "/upload-page-marital"
+          "path": "/partners-current-marital-status"
+        },
+        {
+          "path": "/local-deed-docs"
         }
       ]
     },
     {
-      "path": "/add-your-deed-poll",
-      "title": "Add a picture of your deed poll",
-      "section": "addYourDocuments",
+      "path": "/partners-current-marital-status",
+      "title": "What is your partner's current marital status?",
+      "section": "partnersDetails",
       "components": [
         {
-          "type": "Html",
-          "content": "<p class=\"govuk-body\">Add a photo of your deed pool</p>\r\n\r\n<div class=\"govuk-form-group\">\r\n  <label class=\"govuk-label\" for=\"file-upload-1\">\r\n    Upload a file\r\n  </label>\r\n  <input class=\"govuk-file-upload\" id=\"file-upload-1\"  type=\"file\">\r\n</div>",
-          "options": {},
-          "schema": {}
-        },
-        {
-          "type": "Details",
-          "title": "How to photograph your documents",
-          "content": "<ul class=\"list-bullet govuk-list govuk-list--bullet\" data-reactid=\".e5fgvapfcw.4.1.1.0.1.3.4.1.1:1.5.1.0\"><li data-reactid=\".e5fgvapfcw.4.1.1.0.1.3.4.1.1:1.5.1.0.0\">Lay it flat on a table or for better results against a wall.</li><li data-reactid=\".e5fgvapfcw.4.1.1.0.1.3.4.1.1:1.5.1.0.1\">Make sure your address is readable.</li><li data-reactid=\".e5fgvapfcw.4.1.1.0.1.3.4.1.1:1.5.1.0.2\">No flash if possible.</li><li data-reactid=\".e5fgvapfcw.4.1.1.0.1.3.4.1.1:1.5.1.0.3\">Position the phone parallel to the document.</li><li data-reactid=\".e5fgvapfcw.4.1.1.0.1.3.4.1.1:1.5.1.0.4\">Use both hands to keep your phone steady.</li></ul>",
-          "options": {},
+          "options": {
+            "list": "maritalStatus"
+          },
+          "type": "RadiosField",
+          "name": "partnersCurrentMaritalStatus",
+          "title": "What is your partner's current marital status?",
           "schema": {}
         }
       ],
       "next": [
         {
-          "path": "/your-details"
+          "path": "/partners-divorce-details"
         }
       ]
     },
     {
-      "path": "/add-divorce-death-picture",
-      "title": "Add a picture of your documents",
-      "section": "addYourDocuments",
+      "path": "/partners-divorce-details",
+      "title": "Details about your partner's divorce",
+      "section": "partnersDetails",
       "components": [
         {
-          "type": "Para",
-          "content": "<p class=\"govuk-body\">Add a photo of your divorce decree absolute, disolution decree, or death certificate of your late partner.</p>\r\n\r\n<div class=\"govuk-form-group\">\r\n  <label class=\"govuk-label\" for=\"file-upload-1\">\r\n    Upload a file\r\n  </label>\r\n  <input class=\"govuk-file-upload\" id=\"file-upload-1\"  type=\"file\">\r\n</div>",
+          "type": "DatePartsField",
+          "name": "dateOfIssue",
+          "title": "Date of issue",
           "options": {},
           "schema": {}
         },
         {
-          "type": "Details",
-          "title": "How to photograph your documents",
-          "content": "<ul class=\"list-bullet govuk-list govuk-list--bullet\" data-reactid=\".e5fgvapfcw.4.1.1.0.1.3.4.1.1:1.5.1.0\"><li data-reactid=\".e5fgvapfcw.4.1.1.0.1.3.4.1.1:1.5.1.0.0\">Lay it flat on a table or for better results against a wall.</li><li data-reactid=\".e5fgvapfcw.4.1.1.0.1.3.4.1.1:1.5.1.0.1\">Make sure your address is readable.</li><li data-reactid=\".e5fgvapfcw.4.1.1.0.1.3.4.1.1:1.5.1.0.2\">No flash if possible.</li><li data-reactid=\".e5fgvapfcw.4.1.1.0.1.3.4.1.1:1.5.1.0.3\">Position the phone parallel to the document.</li><li data-reactid=\".e5fgvapfcw.4.1.1.0.1.3.4.1.1:1.5.1.0.4\">Use both hands to keep your phone steady.</li></ul>",
+          "type": "TextField",
+          "name": "placeOfIssue",
+          "title": "Place of issue",
           "options": {},
           "schema": {}
         }
       ],
       "next": [
         {
-          "path": "/your-details"
+          "path": "/local-deed-docs"
         }
       ]
     },
     {
-      "path": "/add-your-local-birth-certificate",
-      "title": "Add your local birth certificate",
-      "section": "addYourDocuments",
+      "path": "/spanish-CNI",
+      "title": "Do you need a Spanish certificate of no impediment?",
       "components": [
         {
-          "type": "Html",
-          "content": "<p class=\"govuk-body\">Add a photo of your local birth certificate .</p>\r\n\r\n<div class=\"govuk-form-group\">\r\n  <label class=\"govuk-label\" for=\"file-upload-1\">\r\n    Upload a file\r\n  </label>\r\n  <input class=\"govuk-file-upload\" id=\"file-upload-1\"  type=\"file\">\r\n</div>",
-          "options": {},
-          "schema": {}
-        },
-        {
-          "type": "Details",
-          "title": "How to photograph your documents",
-          "content": "<ul class=\"list-bullet govuk-list govuk-list--bullet\" data-reactid=\".e5fgvapfcw.4.1.1.0.1.3.4.1.1:1.5.1.0\"><li data-reactid=\".e5fgvapfcw.4.1.1.0.1.3.4.1.1:1.5.1.0.0\">Lay it flat on a table or for better results against a wall.</li><li data-reactid=\".e5fgvapfcw.4.1.1.0.1.3.4.1.1:1.5.1.0.1\">Make sure your address is readable.</li><li data-reactid=\".e5fgvapfcw.4.1.1.0.1.3.4.1.1:1.5.1.0.2\">No flash if possible.</li><li data-reactid=\".e5fgvapfcw.4.1.1.0.1.3.4.1.1:1.5.1.0.3\">Position the phone parallel to the document.</li><li data-reactid=\".e5fgvapfcw.4.1.1.0.1.3.4.1.1:1.5.1.0.4\">Use both hands to keep your phone steady.</li></ul>",
-          "options": {},
+          "options": {
+            "list": "yes-no-don'tknow"
+          },
+          "type": "RadiosField",
+          "name": "spanishCNI",
+          "title": "Do you need a Spanish certificate of no impediment?",
           "schema": {}
         }
       ],
       "next": [
         {
-          "path": "/add-parents-certificate"
+          "path": "/need-MSC"
         }
       ]
     },
     {
-      "path": "/add-parents-certificate",
-      "title": "Add your parent's British birth certificate",
-      "section": "addYourDocuments",
+      "path": "/need-MSC",
+      "title": "Do you need a marital status certificate?",
       "components": [
         {
-          "type": "Html",
-          "content": "<p class=\"govuk-body\">Add a photo of your local birth certificate .</p>\r\n\r\n<div class=\"govuk-form-group\">\r\n  <label class=\"govuk-label\" for=\"file-upload-1\">\r\n    Upload a file\r\n  </label>\r\n  <input class=\"govuk-file-upload\" id=\"file-upload-1\"  type=\"file\">\r\n</div>",
-          "options": {},
-          "schema": {}
-        },
-        {
-          "type": "Details",
-          "title": "How to photograph your documents",
-          "content": "<ul class=\"list-bullet govuk-list govuk-list--bullet\" data-reactid=\".e5fgvapfcw.4.1.1.0.1.3.4.1.1:1.5.1.0\"><li data-reactid=\".e5fgvapfcw.4.1.1.0.1.3.4.1.1:1.5.1.0.0\">Lay it flat on a table or for better results against a wall.</li><li data-reactid=\".e5fgvapfcw.4.1.1.0.1.3.4.1.1:1.5.1.0.1\">Make sure your address is readable.</li><li data-reactid=\".e5fgvapfcw.4.1.1.0.1.3.4.1.1:1.5.1.0.2\">No flash if possible.</li><li data-reactid=\".e5fgvapfcw.4.1.1.0.1.3.4.1.1:1.5.1.0.3\">Position the phone parallel to the document.</li><li data-reactid=\".e5fgvapfcw.4.1.1.0.1.3.4.1.1:1.5.1.0.4\">Use both hands to keep your phone steady.</li></ul>",
-          "options": {},
+          "options": {
+            "list": "yes-no-don'tknow"
+          },
+          "type": "RadiosField",
+          "name": "needMSC",
+          "title": "Do you need a marital status certificate?",
           "schema": {}
         }
       ],
       "next": [
         {
-          "path": "/your-details"
-        },
-        {
-          "path": "/add-your-deed-poll"
-        },
-        {
-          "path": "/add-divorce-death-picture"
+          "path": "/service-process"
         }
       ]
     },
     {
-      "path": "/apply-for-a-certificate-of-custom",
-      "title": "Apply for a certificate of custom (‘certificat de coutume’)",
+      "path": "/application-start",
+      "title": "Apply for the certificate of no impediment and marital status certificate",
       "components": [
         {
-          "type": "Para",
-          "content": "To get married in France you need to get a certificate of custom.",
-          "options": {},
-          "schema": {}
-        },
-        {
-          "type": "Para",
-          "content": "A certificate of custom costs £50. The embassy will send your certificate 2 to 3 weeks after receiving your application.",
-          "options": {},
-          "schema": {}
-        },
-        {
           "type": "Html",
-          "content": "<div class=\"govuk-warning-text\">\r\n  <span class=\"govuk-warning-text__icon\" aria-hidden=\"true\">!</span>\r\n  <strong class=\"govuk-warning-text__text\">\r\n    <span class=\"govuk-warning-text__assistive\">Warning</span>\r\n    You'll need to check if the name on your passport is the same as the name on your birth certificate. If the names are different, you'll have to provide the documents that show the name changing.\r\n  </strong>\r\n</div>",
-          "options": {},
-          "schema": {}
-        },
-        {
-          "type": "Para",
-          "content": "Some town halls or courts only accept a certificate of cusomt dated less that 6 months before your marriage",
+          "content": "<p class=\"govuk-body govuk-!-font-size-19\">In the following process you will apply to exchange your UK-issued CNI for one that’s valid in Spain and to receive a marital status certificate.</p>\r\n<p class=\"govuk-body\">The certificates cost £50 each, which will be a total of £100.</p>\r\n<p class=\"govuk-body\">The consulate will send both certificates and original documents to you by courier. You’ll usually get your certificates 30 working days after the consulate receives your supporting documents.</p>\r\n<p class=\"govuk-body\">Your new CNI will be valid for 6 months from when your original CNI was issued.</p>",
           "options": {},
           "schema": {}
         }
       ],
       "next": [
         {
-          "path": "/how-to-get-a-certificate"
+          "path": "/apply-for-CNI-and-MSC"
+        }
+      ]
+    },
+    {
+      "path": "/apply-for-CNI-and-MSC",
+      "title": "How to get your certificate of no impediment and marital status certificate?",
+      "components": [
+        {
+          "options": {
+            "list": "howToGetCertificate"
+          },
+          "type": "FlashCard",
+          "schema": {}
+        }
+      ],
+      "next": [
+        {
+          "path": "/have-you-been-married-before"
+        }
+      ]
+    },
+    {
+      "path": "/where-do-you-live",
+      "title": "Where do you live?",
+      "components": [
+        {
+          "options": {
+            "list": "whereYouLive"
+          },
+          "type": "RadiosField",
+          "name": "whereDoYouLive",
+          "title": "Where do you live?",
+          "schema": {}
+        }
+      ],
+      "next": [
+        {
+          "path": "/ceremony"
+        },
+        {
+          "path": "/partnerSpanish"
+        }
+      ]
+    },
+    {
+      "path": "/partnerSpanish",
+      "title": "Is your partner a Spanish national?",
+      "components": [
+        {
+          "type": "YesNoField",
+          "name": "partnerSpanish",
+          "title": "Is your partner a Spanish national?",
+          "options": {},
+          "schema": {}
+        }
+      ],
+      "next": [
+        {
+          "path": "/partner-resident-in-Spain"
+        },
+        {
+          "path": "/ceremony"
+        }
+      ]
+    },
+    {
+      "path": "/partner-resident-in-Spain",
+      "title": "Is your partner a resident in Spain?",
+      "components": [
+        {
+          "type": "YesNoField",
+          "name": "partnerResidentInSpain",
+          "title": "Is your partner a resident in Spain?",
+          "options": {},
+          "schema": {}
+        }
+      ],
+      "next": [
+        {
+          "path": "/ceremony"
+        }
+      ]
+    },
+    {
+      "path": "/uk-address",
+      "title": "Your address in the UK",
+      "section": "yourDetails",
+      "components": [
+        {
+          "type": "TextField",
+          "name": "address",
+          "title": "Address",
+          "options": {},
+          "schema": {}
+        },
+        {
+          "type": "TextField",
+          "name": "townOrCity",
+          "title": "Town or city",
+          "options": {},
+          "schema": {}
+        },
+        {
+          "type": "TextField",
+          "name": "postcode",
+          "title": "Postcode",
+          "options": {},
+          "schema": {}
+        }
+      ],
+      "next": [
+        {
+          "path": "/partners-details"
+        }
+      ]
+    },
+    {
+      "path": "/service-process",
+      "title": "Service process",
+      "components": [
+        {
+          "options": {
+            "list": "serviceProcessUKResident"
+          },
+          "type": "FlashCard",
+          "schema": {}
+        }
+      ],
+      "next": [
+        {
+          "path": "/application-start"
         }
       ]
     }
@@ -1266,8 +1045,8 @@
       "title": "Your contact details"
     },
     {
-      "name": "yourPartnersDetails",
-      "title": "Your partner's details"
+      "name": "partnersDetails",
+      "title": "Partner's details"
     },
     {
       "name": "aboutYourCeremony",
@@ -1284,6 +1063,10 @@
     {
       "name": "declaration",
       "title": "Declaration"
+    },
+    {
+      "name": "aboutSpanishAuthority",
+      "title": "About the Spanish authority"
     }
   ],
   "lists": [
@@ -2252,13 +2035,13 @@
       "type": "string",
       "items": [
         {
-          "text": "Civil partnership",
-          "value": "Civil partnership",
+          "text": "Marriage",
+          "value": "Marriage",
           "description": ""
         },
         {
-          "text": "Marriage",
-          "value": "Marriage",
+          "text": "Civil partnership",
+          "value": "Civil partnership",
           "description": ""
         }
       ]
@@ -2308,22 +2091,22 @@
           "description": "We'll tell you what documents you need"
         },
         {
-          "text": "Apply online",
+          "text": "Upload your supporting documents",
           "value": 2,
-          "description": "Fill in the form to prove you are unmarried"
+          "description": "We'll show you how to upload your documents"
         },
         {
-          "text": "Add your documents",
+          "text": "Apply online",
           "value": 3,
-          "description": "We'll show you how to upload your documents"
+          "description": "Fill in the form to prove you are unmarried"
         },
         {
           "text": "Pay online",
           "value": 4,
-          "description": "Certificates cost £50"
+          "description": "Certificates cost £50 each"
         },
         {
-          "text": "Send your documents",
+          "text": "Send your original documents",
           "value": 5,
           "description": "We'll tell you where to send the documents"
         }
@@ -2386,6 +2169,99 @@
         {
           "text": "Deed poll",
           "value": "Deed poll",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "whereShouldWeSendCertificate",
+      "title": "Where should we send the certificate",
+      "type": "string",
+      "items": [
+        {
+          "text": "Your address in Spain",
+          "value": "Your address in Spain",
+          "description": ""
+        },
+        {
+          "text": "Another address in Spain",
+          "value": "Another address in Spain",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "yes-no-don'tknow",
+      "title": "Yes/No/I don/t know",
+      "type": "string",
+      "items": [
+        {
+          "text": "Yes",
+          "value": "Yes",
+          "description": ""
+        },
+        {
+          "text": "No",
+          "value": "No",
+          "description": ""
+        },
+        {
+          "text": "I don't know",
+          "value": "I don't know",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "serviceProcessUKResident",
+      "title": "Service process",
+      "type": "string",
+      "items": [
+        {
+          "text": "Give notice of marriage at your local registry office in the UK",
+          "value": "Give notice of marriage at your local registry office in the UK",
+          "description": "A notice of marriage takes between 28 and 29 days in the UK. You will need this document for your Spanish certificate of no impediment"
+        },
+        {
+          "text": "Get your affirmation notarised by a notary in Spain",
+          "value": "Get your affirmation notarised by a notary in Spain",
+          "description": "You have  to swear an affirmation in front of a notary. You will need this document for your marital status certificate"
+        },
+        {
+          "text": "Apply for the certificate of no impediment and marital status certificate",
+          "value": "Apply for the certificate of no impediment and marital status certificate",
+          "description": "Apply online here"
+        },
+        {
+          "text": "Send your supporting documents",
+          "value": "Send your supporting documents",
+          "description": "This includes the originals of your notice of marriage, your affirmation, and, in case you are divorced or widowed, your decree absolute or death certificate of your late partner"
+        },
+        {
+          "text": "Book appointment at a Spanish registry office",
+          "value": "Book appointment at a Spanish registry office",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "whereYouLive",
+      "title": "Where do you live?",
+      "type": "string",
+      "items": [
+        {
+          "text": "UK",
+          "value": "UK",
+          "description": ""
+        },
+        {
+          "text": "Spain",
+          "value": "Spain",
+          "description": ""
+        },
+        {
+          "text": "Elsewhere",
+          "value": "Elsewhere",
           "description": ""
         }
       ]
