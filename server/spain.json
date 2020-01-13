@@ -1729,7 +1729,7 @@
           "type": "Para",
           "content": "Add a photo of your partner's late partner's death certificate",
           "options": {
-            "condition": "partnerIisWidowedOrSurviving"
+            "condition": "partnerIsWidowedOrSurviving"
           },
           "schema": {}
         },
