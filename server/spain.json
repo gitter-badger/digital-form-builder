@@ -1095,7 +1095,7 @@
     },
     {
       "path": "/spanish-CNI",
-      "title": "Do you need a Spanish certificate of no impediment?",
+      "title": "Do you need a certificate of no impediment?",
       "components": [
         {
           "options": {
@@ -1103,7 +1103,7 @@
           },
           "type": "RadiosField",
           "name": "spanishCNI",
-          "title": "Do you need a Spanish certificate of no impediment?",
+          "title": "Do you need a certificate of no impediment?",
           "schema": {}
         }
       ],
@@ -1149,7 +1149,7 @@
       "components": [
         {
           "type": "Html",
-          "content": "<p class=\"govuk-body\">To get married in Spain you need to get a Spanish certificate of no impediment (‘capacidad matrimonial’) and a marital status certificate.</p>\r\n\r\n<p class=\"govuk-body govuk-!-font-weight-bold\">A certificate of no impediment:</p>\r\n<ul class=\"govuk-list govuk-list--bullet\">\r\n  <li>costs £50</li>\r\n  <li>takes 28 days to process</li>\r\n  <li>is valid for 6 months</li>\r\n</ul>\r\n\r\n<p class=\"govuk-body govuk-!-font-weight-bold\">A marital status certificate:</p>\r\n<ul class=\"govuk-list govuk-list--bullet\">\r\n  <li>costs £50</li>\r\n  <li>takes 30 days to process</li>\r\n</ul>\r\n\r\n<p class=\"govuk-body\"> Apply for all your certificates at least 3 months before you take your documents to the civil registry appointment. </p>",
+          "content": "<p class=\"govuk-body\">To get married in Spain you need to get a certificate of no impediment (‘capacidad matrimonial’) and a marital status certificate.</p>\r\n\r\n<p class=\"govuk-body govuk-!-font-weight-bold\">A certificate of no impediment:</p>\r\n<ul class=\"govuk-list govuk-list--bullet\">\r\n  <li>costs £50</li>\r\n  <li>takes 28 days to process</li>\r\n  <li>is valid for 6 months</li>\r\n</ul>\r\n\r\n<p class=\"govuk-body govuk-!-font-weight-bold\">A marital status certificate:</p>\r\n<ul class=\"govuk-list govuk-list--bullet\">\r\n  <li>costs £50</li>\r\n  <li>takes 30 days to process</li>\r\n</ul>\r\n\r\n<p class=\"govuk-body\"> Apply for all your certificates at least 3 months before you take your documents to the civil registry appointment. </p>",
           "options": {},
           "schema": {}
         },
@@ -1288,7 +1288,7 @@
     },
     {
       "path": "/find-out-cni",
-      "title": "Find out if you need a Spanish certificate of no impediment",
+      "title": "Find out if you need a certificate of no impediment",
       "condition": "doesntKnowCNI",
       "components": [
         {
@@ -1355,7 +1355,7 @@
       "components": [
         {
           "type": "Html",
-          "content": "<p class=\"govuk-body\">To get married in Spain you need to get a Spanish certificate of no impediment (‘capacidad matrimonial’).</p>\r\n\r\n<p class=\"govuk-body govuk-!-font-weight-bold\">A certificate of no impediment:</p>\r\n<ul class=\"govuk-list govuk-list--bullet\">\r\n  <li>costs £50</li>\r\n  <li>takes 28 days to process</li>\r\n  <li>is valid for 6 months</li>\r\n</ul>\r\n\r\n<p class=\"govuk-body\"> Apply for your certificate at least 3 months before you take your document to the civil registry appointment. </p>",
+          "content": "<p class=\"govuk-body\">To get married in Spain you need to get a certificate of no impediment (‘capacidad matrimonial’).</p>\r\n\r\n<p class=\"govuk-body govuk-!-font-weight-bold\">A certificate of no impediment:</p>\r\n<ul class=\"govuk-list govuk-list--bullet\">\r\n  <li>costs £50</li>\r\n  <li>takes 28 days to process</li>\r\n  <li>is valid for 6 months</li>\r\n</ul>\r\n\r\n<p class=\"govuk-body\"> Apply for your certificate at least 3 months before you take your document to the civil registry appointment. </p>",
           "options": {},
           "schema": {}
         },
@@ -3104,7 +3104,7 @@
         {
           "text": "Give notice of marriage at your local registry office in the UK",
           "value": 1,
-          "description": "A notice of marriage takes between 28 and 29 days in the UK. You will need this document for your Spanish certificate of no impediment",
+          "description": "A notice of marriage takes between 28 and 29 days in the UK. You will need this document for your certificate of no impediment",
           "condition": ""
         },
         {
@@ -3247,7 +3247,7 @@
         {
           "text": "Give notice of marriage at your local registry office in the UK",
           "value": "Give notice of marriage at your local registry office in the UK",
-          "description": "A notice of marriage takes between 28 and 29 days in the UK. You will need this document for your Spanish certificate of no impediment"
+          "description": "A notice of marriage takes between 28 and 29 days in the UK. You will need this document for your certificate of no impediment"
         },
         {
           "text": "Get your affirmation notarised by a notary in Spain",
