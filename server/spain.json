@@ -221,6 +221,14 @@
       "value": "livesInSpain and needsCNI"
     },
     {
+      "name": "doesntLiveInSpainAndMSC",
+      "value": "doesntLiveInSpain and needsMSC"
+    },
+    {
+      "name": "doesntLiveInSpainAndMSCOnly",
+      "value": "doesntLiveInSpain and needsMSCOnly"
+    },
+    {
       "name": "addressDifferentToDelivery",
       "value": "sendCertificate == false"
     }
@@ -658,6 +666,9 @@
           "path": "/add-partners-marital-status-documents"
         },
         {
+          "path": "/upload-partners-passport"
+        },
+        {
           "path": "/your-details"
         }
       ],
@@ -796,7 +807,7 @@
     {
       "path": "/add-proof-of-address-elsewhere",
       "title": "Proof of address",
-      "condition": "livesElsewhere",
+      "condition": "livesElsewhereAndNeedsMSC",
       "components": [
         {
           "type": "Html",
@@ -1924,7 +1935,7 @@
           "title": "Which documents can be used as proof of address?",
           "content": "<li>electoral roll confirmation letter</li>\r\n    <li>utility bills (not printed off the internet) / building society/savings bank passbook</li>\r\n    <li>bank/building society/credit card statement (not ones printed off the internet)</li>\r\n    <li>mortgage statement /council tax demand / credit reference agency search</li>\r\n    <li>recent evidence of entitlement to state or local authority-funded benefit, tax credit,\r\npension, educational or other grant</li>",
           "options": {
-            "conditions": "doesntLiveElsewhereAndCNI"
+            "condition": "doesntLiveInSpainAndMSC"
           },
           "schema": {},
           "name": "/need-to-apply-other-country-MSC-partner-married-953-953"
@@ -3464,7 +3475,7 @@
           "description": "your proof of address",
           "value": 1,
           "text": "",
-          "condition": "livesElsewhere"
+          "condition": "livesElsewhereAndNeedsMSC"
         },
         {
           "description": "a town hall registration certificate ('certificado de empadronamiento') issued at least 3 working days before with current address or spanish residence certificate",
