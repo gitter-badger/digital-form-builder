@@ -768,14 +768,6 @@
           "schema": {}
         },
         {
-          "type": "Details",
-          "title": "Which documents can be used as proof of address?",
-          "content": "<li>electoral role confirmation letter</li>\r\n    <li>utility bills (not printed off the internet) / building society/savings bank passbook</li>\r\n    <li>bank/building society/credit card statement (not ones printed off the internet)</li>\r\n    <li>mortgage statement /council tax demand / credit reference agency search</li>\r\n    <li>recent evidence of entitlement to state or local authority-funded benefit, tax credit,\r\npension, educational or other grant</li>",
-          "options": {},
-          "schema": {},
-          "name": "/add-your-documents-742-742"
-        },
-        {
           "type": "FileUploadField",
           "name": "/add-your-documents-742-742",
           "title": "Upload a file",
@@ -813,14 +805,6 @@
           "schema": {}
         },
         {
-          "type": "Details",
-          "title": "Which documents can be used as proof of address?",
-          "content": "<li>electoral role confirmation letter</li>\r\n    <li>utility bills (not printed off the internet) / building society/savings bank passbook</li>\r\n    <li>bank/building society/credit card statement (not ones printed off the internet)</li>\r\n    <li>mortgage statement /council tax demand / credit reference agency search</li>\r\n    <li>recent evidence of entitlement to state or local authority-funded benefit, tax credit,\r\npension, educational or other grant</li>",
-          "options": {},
-          "schema": {},
-          "name": "/add-your-documents-742-742"
-        },
-        {
           "type": "FileUploadField",
           "name": "elsewhereProofOfAddress",
           "title": "Upload a file",
@@ -837,6 +821,9 @@
         }
       ],
       "next": [
+        {
+          "path": "/add-birth-certificate"
+        },
         {
           "path": "/upload-partners-passport"
         }
