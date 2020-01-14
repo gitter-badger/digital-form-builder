@@ -1941,19 +1941,6 @@
           },
           "schema": {},
           "name": "/need-to-apply-other-country-MSC-partner-married-953-953"
-        },
-        {
-          "type": "Para",
-          "content": "You can return to this point in the application. Leave your email address below and we will send you a link to this page you can use at any time.",
-          "schema": {},
-          "options": {}
-        },
-        {
-          "type": "Html",
-          "content": "<div class=\"govuk-form-group\"><label class=\"govuk-label govuk-label--s\" for=\"email\">Email address</label><input class=\"govuk-input\" id=\"email\" type=\"text\"><p><button class=\"govuk-button\" type=\"button\">Send email</button>\n</p></div>",
-          "schema": {},
-          "name": "/need-to-apply-other-country-MSC-partner-married-953-953",
-          "options": {}
         }
       ],
       "next": [
@@ -3493,7 +3480,7 @@
           "condition": "livesElsewhere"
         },
         {
-          "description": "a town hall registration certificate ('certificado de empadronamiento') issued at least 3 working days before",
+          "description": "a town hall registration certificate ('certificado de empadronamiento') issued at least 3 working days before with current address or spanish residence certificate",
           "value": 1,
           "text": "",
           "condition": "livesInSpain"
