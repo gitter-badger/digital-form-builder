@@ -3557,5 +3557,14 @@
       "amount": 5000,
       "condition": "needsMSC"
     }
-  ]
+  ],
+  "notify": {
+    "personalisation": [
+      "needsMSC",
+      "needsCNI",
+      "yourDetails.firstName"
+    ],
+    "emailField": "yourContactDetails.email",
+    "templateId": "998430f6-9298-477a-8294-fa93725fd986"
+  }
 }
