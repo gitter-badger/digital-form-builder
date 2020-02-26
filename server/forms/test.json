@@ -1,0 +1,60 @@
+{
+  "metadata": {},
+  "startPage": "/name",
+  "pages": [
+    {
+      "path": "/date",
+      "components": [
+        {
+          "type": "DatePartsField",
+          "name": "date",
+          "title": "Date"
+        },
+        {
+          "type": "FileUploadField",
+          "name": "sssss",
+          "title": "sdasd"
+        }
+      ],
+      "next": [
+        {
+          "path": "/summary"
+        }
+      ],
+      "section": "yourDetails"
+    },
+    {
+      "path": "/summary",
+      "controller": "./pages/summary.js",
+      "components": [],
+      "title": "Summary"
+    },
+    {
+      "path": "/name",
+      "title": "Name",
+      "components": [
+        {
+          "type": "TextField",
+          "name": "name",
+          "title": "Name"
+        }
+      ],
+      "next": [
+        {
+          "path": "/date"
+        }
+      ],
+      "section": "yourDetails"
+    }
+  ],
+  "lists": [],
+  "sections": [
+    {
+      "name": "yourDetails",
+      "title": "Your details"
+    }
+  ],
+  "conditions": [
+  ],
+  "fees": []
+}
