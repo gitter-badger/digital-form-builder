@@ -1,9 +1,9 @@
 {
   "metadata": {},
-  "startPage": "/name",
+  "startPage": "/your-details",
   "pages": [
     {
-      "path": "/date",
+      "path": "/your-details",
       "components": [
         {
           "type": "DatePartsField",
@@ -11,9 +11,17 @@
           "title": "Date"
         },
         {
+          "type": "TelephoneNumberField",
+          "name": "telephone",
+          "title": "Phone number"
+        },
+        {
           "type": "FileUploadField",
-          "name": "sssss",
-          "title": "sdasd"
+          "name": "certificate",
+          "title": "Upload multiple",
+          "options": {
+            "multiple": true
+          }
         }
       ],
       "next": [
