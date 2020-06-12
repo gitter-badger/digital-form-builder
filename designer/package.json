@@ -11,7 +11,7 @@
     "dev": "rollup -c -w & node index.js",
     "start": "node index.js",
     "symlink-env": "./bin/symlink-config",
-    "test": "npm run lint && npm run unit:with-coverage && npm run check-coverage && npm audit --audit-level=high",
+    "test": "npm run lint && npm run unit && npm run unit:with-coverage && npm run check-coverage && npm audit --audit-level=high",
     "unit": "mocha --recursive test/spec/ --require test/helper --timeout 300000 --require @babel/register",
     "unit:debug": "mocha --recursive test/spec/ --require test/helper --timeout 300000 --require @babel/register --inspect-brk",
     "unit:with-coverage": "nyc mocha --recursive test/spec/ --require test/helper --timeout 300000--compilers --require @babel/register",
